@@ -9,7 +9,7 @@ f = int(input("How many toonies '($2)' do you have?"))
 
 tot = (a + (b*5) + (c*10) + (d*25) + (e*100) + (f*200))/100
 
-totDol = int((tot // 1))
+totDol = int(tot // 1)
         
 print("The number of pennies is " + str(a))
 print("The number of nickles is " + str(b))
@@ -20,13 +20,14 @@ print("The number of toonies is " + str(f))
 
 print("\nThe total amount of money in dollars is $" + str(tot))
 
-change = tot - (tot // 1) # stores the value of the cents from the total amout of money
+change = tot - totDol # stores the value of the cents from the total amout of money
+changeQ = (change) % 4
 
-chq = int(change // 0.25)
-chd = int((change - (change * 0.25)) // 0.10)
-chn = int((change - (change * 0.25) - (change * 0.10)) // 0.05)
-chp = int((change - (change * 0.25) - (change * 0.10) - (change * 0.05)) // 0.01)
+chq = int(change * 4)
+chd = int(change * 10) - chq
+chn = int(change * 20) - (chd * 2)
+chp = int(change * 100) - (chn * 5) - (chd * 10)
 
 dollars = int((tot - totDol))
 
-print("You have $" + str(totDol) + ",", str(chq), "quarters,",str(chn),"nickles,",str(chd),"dimes, and",str(chp),"pennies in change alone.")
+print("You have $" + str(totDol) + ",", str(chq), "quarters,",str(chn),"nickles,",str(chd),"dimes, and",str(chp),"penny(ies) in change alone.")
