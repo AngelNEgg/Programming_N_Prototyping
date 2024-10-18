@@ -1,4 +1,6 @@
-# complete rolls in conditionals
+# Angel Nazaire
+# 10/17/2024
+# Period 5-6
 
 import random
 
@@ -64,3 +66,6 @@ else:
     game = game + 1
  
 print("Your final score is...\n" + str(score))
+# too long
+# ----------------------------------------------------------------
+
