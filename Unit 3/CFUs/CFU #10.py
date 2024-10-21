@@ -15,7 +15,11 @@ guess = "placeholder"
 def guess_func(x,y,z):
     x = int(input("Guess any number 1-10: "))
     
-    if x == y:
+    if x == y and x == 1:
+        z = z + 1
+        print("\nYou guessed correctly in", str(z), "try!")
+        
+    elif x == y and x > 1:
         z = z + 1
         print("\nYou guessed correctly in", str(z), "tries!")
         
