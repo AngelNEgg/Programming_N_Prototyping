@@ -10,13 +10,9 @@ a = int(input('Enter the "A" coefficient: '))
 b = int(input('Enter the "B" coefficient: '))
 c = int(input('Enter the "C" coefficient: '))
 
-p1 = b**2
-p2 = 4*a*c
-p3 = 2*a
-p4 = p1 - p2
-p5 = math.sqrt(p4)
+d = (b**2) - (4*a*c)
 
-x1 = (-b - p5)/p3
-x2 = (-b + p5)/p3
+x1 = (-b - (math.sqrt(d))) / (2*a)
+x2 = (-b + (math.sqrt(d))) / (2*a)
 
-quad = (a(x1))**2+b(x2)-c
+print(f'The solutions are:\n\tx1 = {x1}, and x2 = {x2}.')
