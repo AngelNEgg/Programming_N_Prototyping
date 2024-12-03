@@ -6,8 +6,10 @@
 
 # Angel Nazaire
 # 12/2/2024
+# Period 5-6
 
 import simplegui
+import random
 
 xmax = 600
 ymax = 400
@@ -35,16 +37,22 @@ def draw(canvas):
     
     #-shell (REPOSITION)
     def shell(canvas):
-        canvas.draw_circle(((xmax/2)-40,(ymax/2)+10), 40, 4, "#B55400", "#FFAB00")
-        canvas.draw_circle(((xmax/2)+40,(ymax/2)+10), 40, 4, "#B55400", "#FFAB00")
-        canvas.draw_circle((xmax/2,ymax/2), 50, 5, "#B55400", "#FFAB00")
+        canvas.draw_circle(((xmax/2)-40,(ymax/2)+10), 90, 4, "#B55400", "#FFAB00")
+        canvas.draw_circle(((xmax/2)+40,(ymax/2)+10), 90, 4, "#B55400", "#FFAB00")
+        canvas.draw_circle((xmax/2,ymax/2), 100, 5, "#B55400", "#FFAB00")
     
-    #-shading (REPOSITION)
+    #-shading (complete)
     def shade(canvas):
-        canvas.draw_circle(((xmax/2)+5,(ymax/2)+6), 45, 5, "rgba(0,0,0,0)", "#AD7400")
-        canvas.draw_circle(((xmax/2)-40,(ymax/2)+6), 35, 4, "rgba(0,0,0,0)", "#AD7400")
-        canvas.draw_circle((((xmax/2)+45,(ymax/2)+6)), 35, 4, "rgba(0,0,0,0)", "#AD7400")
-    
+        canvas.draw_circle(((xmax/2)+5,(ymax/2)+6), 95, 5, "rgba(0,0,0,0)", "#AD7400")
+        canvas.draw_circle(((xmax/2)-40,(ymax/2)+16), 85, 4, "rgba(0,0,0,0)", "#AD7400")
+        canvas.draw_circle((((xmax/2)+45,(ymax/2)+16)), 85, 4, "rgba(0,0,0,0)", "#AD7400")
+        #-darker
+        canvas.draw_circle(((xmax/2)+5,(ymax/2)+16), 85, 5, "rgba(0,0,0,0)", "#824800")
+        canvas.draw_circle(((xmax/2)-42,(ymax/2)+26), 75, 4, "rgba(0,0,0,0)", "#824800")
+        canvas.draw_circle((((xmax/2)+47,(ymax/2)+26)), 75, 4, "rgba(0,0,0,0)", "#824800")
+        
+        #-leaves (RANDOM) (IMPLEMENT)
+        
         #-filter (complete)
         canvas.draw_circle((xmax/2,ymax/2), xmax, xmax, "rgba(135,72,0,0)", "rgba(135,72,0,0.25)")
     
