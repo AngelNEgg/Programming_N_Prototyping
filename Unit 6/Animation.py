@@ -3,7 +3,7 @@
 # Period 5-6
 '''Create an animation themed around winter holidays using your current knowledge of SimpleGUI and Python.'''
 
-# Road color: #7e838f
+# ADD 2 MORE LINES
 import simplegui
 import random
 
@@ -30,8 +30,11 @@ def draw(canvas):
     global snowY
     # BG + Ground
     canvas.draw_polygon([(0,0),(0,height),(width,height),(width,0)], 4, "#0c1b3b", "#0c1b3b")
+    canvas.draw_line((0,Hheight),(width,Hheight), 40, "#d3d9e8")
     canvas.draw_polygon([(0,Hheight),(0,height),(width,height),(width,Hheight)], 4, "#ebf1ff", "#ebf1ff")
     canvas.draw_polygon([(Hwidth,Hheight),(Hwidth/2,height),((Hwidth/2)*3,height)], 2, "#7e838f", "#7e838f")
+    canvas.draw_line((Hwidth,Hheight),(Hwidth/2,height), 3, "#4f4a5c")
+    canvas.draw_line((Hwidth,Hheight),((Hwidth/2)*3,height), 3, "#4f4a5c")
     
     # House (FINISH STYLE)
     canvas.draw_polygon([(Hwidth-57,Hheight),(Hwidth+57,Hheight),(Hwidth+57,Hheight+75),(Hwidth-57,Hheight+75)], 4, "#701911", "#c2451b")
