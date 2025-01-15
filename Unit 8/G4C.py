@@ -5,28 +5,38 @@
 
 import simplegui
 
+# Frame aspect ratio
 width = 600
 height = 600
 
-message = "Welcome!"
+# Sprites
 player = simplegui.load_image("https://i.ibb.co/FmY1Rzx/pixil-frame-0.png")
 floor = simplegui.load_image("https://i.ibb.co/B4tMr5h/pixil-frame-0.png")
+enemy = simplegui.load_image("https://i.ibb.co/KKhRfpS/pixil-frame-0-1.png")
+
+# Sprite aspect ratios
 P_WIDTH = 32
 P_HEIGHT = 32
+E_WIDTH = 32
+E_HEIGHT = 32
 F_WIDTH = 150
 F_HEIGHT = 150
+
+# Player position vars
 posX = width/2
 posY = height/2
+
+# Misc.
+health = 100
 debug = "placeholder"
-
-# Handler for mouse
-
+test = [posX,posY]
 
 # Handler for keys
 def keydown(key):
     global debug
     global posX
     global posY
+    global health
     ####### Add KEY_MAP to translate to key codes
     if key == simplegui.KEY_MAP["up"]:
         debug = "Up arrow"
@@ -42,6 +52,9 @@ def keydown(key):
         posX += 20
     elif key == simplegui.KEY_MAP["space"]:
         debug = "Spacebar"
+        
+    if (posX > 280 or posX < 320) and (posY > 280 or posY < 320):
+        health -= 10
 
 # Handler to draw on canvas
 def draw(canvas):
@@ -49,13 +62,15 @@ def draw(canvas):
     #canvas.draw_polygon([(width/4,height/4), ((width/4)*3,height/4), ((width/4)*3,(height/4)*3), (width/4,(height/4)*3)], 1, "Black", "Brown") reference square for floor texture size
     canvas.draw_image(floor, (F_WIDTH/2, F_HEIGHT/2),(F_WIDTH, F_HEIGHT), (300, 300), (300, 300))
     
-    # Player (DRAW LAST)
+    # Characters (DRAW LAST)
     canvas.draw_image(player, (P_WIDTH / 2, P_HEIGHT / 2), (P_WIDTH, P_HEIGHT), (posX, posY), (50, 50))
+    canvas.draw_image(enemy, (E_WIDTH / 2, E_HEIGHT / 2), (E_WIDTH, E_HEIGHT), (340, 340), (50, 50))
 
 # Create a frame and assign callbacks to event handlers
 frame = simplegui.create_frame("Home", width, height)
 frame.add_label("Click the screen to start!")
 frame.add_label("Use the arrow keys to move!")
+frame.add_label(f"{test}")
 frame.set_keydown_handler(keydown)
 frame.set_draw_handler(draw)
 
