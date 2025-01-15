@@ -4,15 +4,17 @@
 '''Games4Change Final Project: Peaceformers Game'''
 
 import simplegui
-import codeskulptor
 
 width = 600
 height = 600
 
 message = "Welcome!"
 player = simplegui.load_image("https://i.ibb.co/FmY1Rzx/pixil-frame-0.png")
+floor = simplegui.load_image("https://i.ibb.co/B4tMr5h/pixil-frame-0.png")
 P_WIDTH = 32
 P_HEIGHT = 32
+F_WIDTH = 150
+F_HEIGHT = 150
 posX = width/2
 posY = height/2
 debug = "placeholder"
@@ -43,8 +45,9 @@ def keydown(key):
 
 # Handler to draw on canvas
 def draw(canvas):
-    # Scene
-    canvas.draw_polygon([(width/4,height/4), ((width/4)*3,height/4), ((width/4)*3,(height/4)*3), (width/4,(height/4)*3)], 1, "Black", "Brown")
+    # Scene (**ADD OBJECTS)
+    #canvas.draw_polygon([(width/4,height/4), ((width/4)*3,height/4), ((width/4)*3,(height/4)*3), (width/4,(height/4)*3)], 1, "Black", "Brown") reference square for floor texture size
+    canvas.draw_image(floor, (F_WIDTH/2, F_HEIGHT/2),(F_WIDTH, F_HEIGHT), (300, 300), (300, 300))
     
     # Player (DRAW LAST)
     canvas.draw_image(player, (P_WIDTH / 2, P_HEIGHT / 2), (P_WIDTH, P_HEIGHT), (posX, posY), (50, 50))
