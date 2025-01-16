@@ -4,6 +4,7 @@
 '''Games4Change Final Project: Peaceformers Game'''
 
 import simplegui
+import time
 
 # Frame aspect ratio
 width = 600
@@ -28,6 +29,7 @@ posY = height/2
 
 # Misc.
 health = 100
+print(f"Health: {health}")
 debug = "placeholder"
 test = [posX,posY]
 
@@ -37,7 +39,7 @@ def keydown(key):
     global posX
     global posY
     global health
-    ####### Add KEY_MAP to translate to key codes
+    # Key detection (COMPLETE)
     if key == simplegui.KEY_MAP["up"]:
         debug = "Up arrow"
         posY -= 20
@@ -53,8 +55,30 @@ def keydown(key):
     elif key == simplegui.KEY_MAP["space"]:
         debug = "Spacebar"
         
-    if (posX > 280 or posX < 320) and (posY > 280 or posY < 320):
-        health -= 10
+# Enemy detection (BUGGED)
+if posX == 340 and posY == 340 and debug == "Right arrow":
+    health -= 10
+    print(f"Health: {health}")
+    posX -= 20
+    if health < 1:
+        print("GAME OVER")
+elif posX == 340 and posY == 340 and debug == "Left arrow":
+    health -= 10
+    print(f"Health: {health}")
+    posX += 20
+    if health < 1:
+        print("GAME OVER")
+elif posX == 340 and posY == 340 and debug == "Up arrow":
+    health -= 10
+    posY += 20
+    if health < 1:
+        print("GAME OVER")
+elif posX == 340 and posY == 340 and debug == "Down arrow":
+    health -= 10
+    print(f"Health: {health}")
+    posY -= 20
+    if health < 1:
+        print("GAME OVER")
 
 # Handler to draw on canvas
 def draw(canvas):
@@ -66,11 +90,11 @@ def draw(canvas):
     canvas.draw_image(player, (P_WIDTH / 2, P_HEIGHT / 2), (P_WIDTH, P_HEIGHT), (posX, posY), (50, 50))
     canvas.draw_image(enemy, (E_WIDTH / 2, E_HEIGHT / 2), (E_WIDTH, E_HEIGHT), (340, 340), (50, 50))
 
-# Create a frame and assign callbacks to event handlers
+# Create frame and assign callbacks to event handlers
 frame = simplegui.create_frame("Home", width, height)
 frame.add_label("Click the screen to start!")
 frame.add_label("Use the arrow keys to move!")
-frame.add_label(f"{test}")
+frame.add_label(f"{health}")
 frame.set_keydown_handler(keydown)
 frame.set_draw_handler(draw)
 
