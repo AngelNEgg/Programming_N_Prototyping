@@ -1,3 +1,8 @@
+# Angel Nazaire
+# 3/10/25
+# Period 5-6
+'''Python Code Challenge #6: Make a function to see if the side lengths add up to be a triangle'''
+
 def is_triangle(x,y,z):
     if (x+y) < z:
         print("No")     
