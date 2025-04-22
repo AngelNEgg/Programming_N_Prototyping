@@ -17,7 +17,7 @@ player = simplegui.load_image("https://i.ibb.co/FmY1Rzx/pixil-frame-0.png")
 floor = simplegui.load_image("https://i.ibb.co/B4tMr5h/pixil-frame-0.png")
 enemy = simplegui.load_image("https://i.ibb.co/KKhRfpS/pixil-frame-0-1.png")
 grass = simplegui.load_image("https://i.ibb.co/wMhQWFt/pixil-frame-0-2.png")
-resource = simple.load_image("")
+resource = simplegui.load_image("")
 
 # Sprite aspect ratios
 ## Player
@@ -33,8 +33,8 @@ F_HEIGHT = 150
 G_WIDTH = width
 G_HEIGHT = height
 ## Resource
-R_WIDTH
-R_HEIGHT
+R_WIDTH = 32
+R_HEIGHT = 32
 
 # Player position vars
 posX = width/2
@@ -81,7 +81,9 @@ def keydown(key):
             print("Player pressed Space")
             debug = "Spacebar"
         if key == simplegui.KEY_MAP["space"] and (posX >= 320 and posX < 380) and (posY <= 360 and posY > 300):
+            health+=10
             print("success")
+            
 
         ## Enemy detection (Fixed)
         ### Player Damage (COMPLETE)
